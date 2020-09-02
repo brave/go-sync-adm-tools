@@ -14,7 +14,7 @@ const (
 	clientIDKey = "ClientID"
 	idKey       = "ID"
 	projPk      = clientIDKey + ", " + idKey
-	ttlAttrName = "TTL"
+	ttlAttrName = "ttl"
 )
 
 var (
