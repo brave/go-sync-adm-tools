@@ -2,6 +2,7 @@ package dynamo
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
@@ -82,9 +83,19 @@ func (dynamo *Dynamo) DeleteUserData(clientID string, ttl int64) error {
 
 // NewDynamo returns a dynamoDB client to be used.
 func NewDynamo() (*Dynamo, error) {
+	region := os.Getenv("AWS_REGION")
+	if region == "" {
+		region = "us_west2"
+	}
+
+	endpoint := os.Getenv("AWS_ENDPOINT")
+	if endpoint == "" {
+		endpoint = "http://localhost:8000"
+	}
+
 	config := &aws.Config{
-		Region:   aws.String("us_west2"),
-		Endpoint: aws.String("http://localhost:8000"),
+		Region:   aws.String(region),
+		Endpoint: aws.String(endpoint),
 	}
 	sess, err := session.NewSession(config)
 	if err != nil {
