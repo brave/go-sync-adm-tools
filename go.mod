@@ -1,4 +1,4 @@
-module github.com/yrliou/go-sync-adm-tools
+module github.com/brave/go-sync-adm-tools
 
 go 1.14
 

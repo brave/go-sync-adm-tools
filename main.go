@@ -5,11 +5,11 @@ import (
 	"os"
 	"time"
 
-	"github.com/yrliou/go-sync-adm-tools/dynamo"
+	"github.com/brave/go-sync-adm-tools/dynamo"
 )
 
 const (
-	ttl = time.Hour * 24 * 10 // 10 day
+	ttl = time.Hour // 1 hour
 )
 
 func main() {
